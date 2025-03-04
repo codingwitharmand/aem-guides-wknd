@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
           jcr:primaryType="nt:unstructured"
           jcr:title="Product Details"
           sling:resourceType="cq/gui/components/authoring/dialog"
@@ -29,29 +31,54 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <productName jcr:primaryType="nt:unstructured"
-                                                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                         fieldLabel="Product Name"
-                                                         required="{Boolean}true"
-                                                         validation="product-name-validation"
-                                                         maxlength="100"/>
-
-                                            <!-- Product Category Dropdown with Custom Options -->
-                                            <productCategory jcr:primaryType="nt:unstructured"
+                                            <name jcr:primaryType="nt:unstructured"
+                                                  sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                  fieldLabel="Product Name"
+                                                  required="{Boolean}true"
+                                                  name="./name"
+                                                  maxlength="100"/>
+                                            <description
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                    fieldLabel="Description"
+                                                    name="./description"
+                                                    required="{Boolean}true"
+                                                    useFixedInlineToolbar="{Boolean}true"
+                                            />
+                                            <category jcr:primaryType="nt:unstructured"
                                                              sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                             name="./category"
                                                              fieldLabel="Product Category">
                                                 <items jcr:primaryType="nt:unstructured">
                                                     <electronics jcr:primaryType="nt:unstructured"
                                                                  text="Electronics"
-                                                                 value="electronics"/>
+                                                                 value="Electronics"/>
                                                     <fashion jcr:primaryType="nt:unstructured"
                                                              text="Fashion"
-                                                             value="fashion"/>
+                                                             value="Fashion"/>
                                                     <home jcr:primaryType="nt:unstructured"
                                                           text="Home and Living"
-                                                          value="home"/>
+                                                          value="Home and Living"/>
                                                 </items>
-                                            </productCategory>
+                                            </category>
+                                            <hashtags jcr:primaryType="nt:unstructured"
+                                                      sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                      fieldLabel="Hashtags">
+                                                <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                        name="./hashtags">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <name jcr:primaryType="nt:unstructured"
+                                                              sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                              fieldLabel="Hashtag"
+                                                              required="{Boolean}true"
+                                                              name="./hashtag"
+                                                              maxlength="100"/>
+
+                                                    </items>
+                                                </field>
+                                            </hashtags>
                                         </items>
                                     </column>
                                 </items>
@@ -76,13 +103,13 @@
                                             <price jcr:primaryType="nt:unstructured"
                                                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
                                                    fieldLabel="Price"
+                                                   name="./price"
                                                    min="0"
                                                    step="0.01"
                                                    validation="price-validation"/>
-
-                                            <!-- Dynamic Datasource Dropdown -->
                                             <brand jcr:primaryType="nt:unstructured"
                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                   name="./brand"
                                                    fieldLabel="Brand">
                                                 <datasource
                                                         jcr:primaryType="nt:unstructured"
@@ -111,15 +138,29 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <productImages jcr:primaryType="nt:unstructured"
-                                                           sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                                           fieldLabel="Product Images">
-                                                <field jcr:primaryType="nt:unstructured"
-                                                       sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                                       rootPath="/content/dam/product-images"
-                                                       allowBrowse="{Boolean}true"
-                                                       allowUpload="{Boolean}true"/>
-                                            </productImages>
+                                            <image
+                                                    granite:class="fileupload-required-allow-hidden"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                    allowUpload="{Boolean}false"
+                                                    autoStart="{Boolean}false"
+                                                    class="cq-droptarget"
+                                                    fieldLabel="Image *"
+                                                    fileNameParameter="./fileName"
+                                                    fileReferenceParameter="./fileReference"
+                                                    mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                    multiple="{Boolean}false"
+                                                    name="./image"
+                                                    title="Upload Image Asset"
+                                                    uploadUrl="${suffix.path}"
+                                                    required="{Boolean}true"
+                                            />
+                                            <alt jcr:primaryType="nt:unstructured"
+                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                 fieldLabel="Alt"
+                                                 required="{Boolean}true"
+                                                 name="./alt"
+                                                 maxlength="100"/>
                                         </items>
                                     </column>
                                 </items>
