@@ -8,6 +8,7 @@
     <div class="product__price">${properties.price}</div>
     <div class="product__brand">${properties.brand}</div>
     <div class="product__tags">${properties.hashtag @ join=' | ' }</div>
+    <div class="text-danger"></div>
 </div>
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
     <sly data-sly-call="${clientlib.all @ categories='wknd.bootstrap'}">
