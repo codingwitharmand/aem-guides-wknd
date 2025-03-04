@@ -5,7 +5,7 @@
           jcr:primaryType="nt:unstructured"
           jcr:title="Product Details"
           sling:resourceType="cq/gui/components/authoring/dialog"
-          extraClientLibs="[acs-commons.widgets.showhidedialogfields]"
+          extraClientlibs="[wknd.checkbox.showhide]"
 >
     <content
             jcr:primaryType="nt:unstructured"
@@ -105,8 +105,32 @@
                                                    fieldLabel="Price"
                                                    name="./price"
                                                    min="0"
-                                                   step="0.01"
-                                                   validation="price-validation"/>
+                                                   step="0.01"/>
+                                            <discount
+                                                    granite:class="cq-dialog-checkbox-showhide"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    text="Discount Available"
+                                                    name="./discount"
+                                                    uncheckedValue="false"
+                                                    value="true" >
+                                                <granite:data jcr:primaryType="nt:unstructured"
+                                                              cq-dialog-checkbox-showhide-target=".discount-target" />
+                                            </discount>
+                                            <discountPriceContainer
+                                                    granite:class="discount-target"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    margin="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <discountPrice
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                            fieldLabel="Discount Price"
+                                                            name="./discountPrice"
+                                                    />
+                                                </items>
+                                            </discountPriceContainer>
                                             <brand jcr:primaryType="nt:unstructured"
                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                    name="./brand"
