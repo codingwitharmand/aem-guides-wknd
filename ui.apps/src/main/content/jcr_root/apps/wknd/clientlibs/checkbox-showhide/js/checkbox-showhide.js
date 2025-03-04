@@ -44,7 +44,7 @@
                 });
             } else {
                 // handle Coral2 based drop-down
-                var component = $(element).data("checkbox");
+                let component = $(element).data("checkbox");
                 if (component) {
                     showHide(component, element);
                 }
@@ -55,10 +55,10 @@
     function showHide(component, element) {
         console.log('showing');
         // get the selector to find the target elements. its stored as data-.. attribute
-        var target = $(element).data("cqDialogCheckboxShowhideTarget");
-        var $target = $(target);
-        var targetHide = target+"-hide";
-        var $targetHide = $(targetHide);
+        let target = $(element).data("cqDialogCheckboxShowhideTarget");
+        let $target = $(target);
+        let targetHide = target+"-hide";
+        let $targetHide = $(targetHide);
 
         if($targetHide){
             $targetHide.removeClass("hide");
@@ -80,7 +80,7 @@
 
     function updateRequiredAttributes($target, hideElement) {
         $target.find('.cq-dialog-checkbox-manage-required, [data-wrapperclass="cq-dialog-checkbox-manage-required"]').each(function(index, element) {
-            var $elem = $(element);
+            let $elem = $(element);
 
             if (hideElement === false) {
                 // If the element is visible, ADD attributes
