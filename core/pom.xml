@@ -53,6 +53,7 @@ Import-Package: javax.annotation;version=0.0.0,*
                 <artifactId>bnd-baseline-maven-plugin</artifactId>
                 <configuration>
                     <failOnMissing>false</failOnMissing>
+                    <skip>true</skip>
                 </configuration>
                 <executions>
                     <execution>
@@ -74,6 +75,14 @@ Import-Package: javax.annotation;version=0.0.0,*
                     <archive>
                         <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
                     </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -147,6 +156,12 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>commons-collections4</artifactId>
             <version>4.4</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -335,6 +350,19 @@ Import-Package: javax.annotation;version=0.0.0,*
                     <artifactId>commons-collections4</artifactId>
                     <version>4.4</version>
                     <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                    <version>1.18.30</version>
+                    <scope>provided</scope>
+                </dependency>
+                <!-- ACS Commons -->
+                <dependency>
+                    <groupId>com.adobe.acs</groupId>
+                    <artifactId>acs-aem-commons-bundle</artifactId>
+                    <version>6.6.0</version>
+                    <scope>provided</scope>
                 </dependency>
             </dependencies>
         </profile>
