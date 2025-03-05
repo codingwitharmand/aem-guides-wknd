@@ -1,4 +1,5 @@
 <div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.model="com.adobe.aem.guides.wknd.core.models.ProductModel"
      data-sly-test.hasContent="${properties.fileReference}"
      class="product">
     <img src="${properties.fileReference}" alt="${properties.alt}" class="product__image" />
@@ -7,7 +8,17 @@
     <span class="product__category">${properties.category}</span>
     <div class="product__price">${properties.price}</div>
     <div class="product__brand">${properties.brand}</div>
-    <div class="product__tags">${properties.hashtag @ join=' | ' }</div>
+    <sly data-sly-test.separator="${model.separator}">
+        <sly data-sly-test="${separator == 'pipe'}">
+            <div class="product__tags">${properties.hashtag @ join=' | ' }</div>
+        </sly>
+        <sly data-sly-test="${separator == 'hyphen'}">
+            <div class="product__tags">${properties.hashtag @ join=' - ' }</div>
+        </sly>
+        <sly data-sly-test="${separator == 'slash'}">
+            <div class="product__tags">${properties.hashtag @ join=' / ' }</div>
+        </sly>
+    </sly>
     <div class="text-danger"></div>
 </div>
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
