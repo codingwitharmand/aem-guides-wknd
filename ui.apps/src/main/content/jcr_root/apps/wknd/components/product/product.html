@@ -1,1 +1,16 @@
-<h1>Product</h1>
+<div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+     data-sly-test.hasContent="${properties.fileReference}"
+     class="product">
+    <img src="${properties.fileReference}" alt="${properties.alt}" class="product__image" />
+    <h2 class="product__tile">${properties.name}</h2>
+    <div class="product__description">${properties.description @ context='html'}</div>
+    <span class="product__category">${properties.category}</span>
+    <div class="product__price">${properties.price}</div>
+    <div class="product__brand">${properties.brand}</div>
+    <div class="product__tags">${properties.hashtag @ join=' | ' }</div>
+    <div class="product__supplier">${properties.supplier}</div>
+</div>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='wknd.product'}" />
+</sly>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>
