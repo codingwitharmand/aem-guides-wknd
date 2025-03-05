@@ -52,13 +52,13 @@
                                                 <items jcr:primaryType="nt:unstructured">
                                                     <electronics jcr:primaryType="nt:unstructured"
                                                                  text="Electronics"
-                                                                 value="Electronics"/>
+                                                                 value="electronics"/>
                                                     <fashion jcr:primaryType="nt:unstructured"
                                                              text="Fashion"
-                                                             value="Fashion"/>
+                                                             value="fashion"/>
                                                     <home jcr:primaryType="nt:unstructured"
                                                           text="Home and Living"
-                                                          value="Home and Living"/>
+                                                          value="home"/>
                                                 </items>
                                             </category>
                                             <hashtags jcr:primaryType="nt:unstructured"
@@ -69,7 +69,7 @@
                                                         sling:resourceType="granite/ui/components/coral/foundation/container"
                                                         name="./hashtags">
                                                     <items jcr:primaryType="nt:unstructured">
-                                                        <name jcr:primaryType="nt:unstructured"
+                                                        <hashtag jcr:primaryType="nt:unstructured"
                                                               sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                               fieldLabel="Hashtag"
                                                               required="{Boolean}true"
@@ -143,6 +143,16 @@
                                                         dropdownSelector="filters"
                                                 />
                                             </brand>
+                                            <supplier jcr:primaryType="nt:unstructured"
+                                                   sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                   name="./supplier"
+                                                   fieldLabel="Supplier">
+                                                <datasource
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="sling/servlets/wknd/utils/suppliers"
+                                                        dropdownSelector="filters"
+                                                />
+                                            </supplier>
                                         </items>
                                     </column>
                                 </items>
