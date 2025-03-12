@@ -1,7 +1,6 @@
 <div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
      data-sly-use.model="com.adobe.aem.guides.wknd.core.models.ProductModel"
-     data-sly-test.hasContent="${properties.fileReference}"
-     class="product">
+     data-sly-test.hasContent="${properties.fileReference}">
     <img src="${properties.fileReference}" alt="${properties.alt}" class="product__image" />
     <h2 class="product__tile">${properties.name}</h2>
     <div class="product__description">${properties.description @ context='html'}</div>
