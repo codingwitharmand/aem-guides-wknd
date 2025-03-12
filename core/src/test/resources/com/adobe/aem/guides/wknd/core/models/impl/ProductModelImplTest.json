@@ -1,0 +1,94 @@
+{
+  "us": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "product": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "description": "<p>A good surf for good waves</p>",
+          "fileReference": "/content/dam/wknd-shared/en/magazine/san-diego-surf-spots/adobestock-164735399.jpeg",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Tue Mar 11 2025 10:50:20 GMT+0100",
+          "alt": "Surf",
+          "name": "Surf",
+          "category": "Fashion",
+          "brand": "huawei",
+          "price": "1500",
+          "discount": "false",
+          "hashtag": [
+            "surf",
+            "waves",
+            "sport"
+          ],
+          "jcr:lastModified": "Tue Mar 11 2025 11:57:18 GMT+0100",
+          "sling:resourceType": "wknd/components/product",
+          "textIsRich": "true"
+        }
+      }
+    }
+  },
+  "ca": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "product": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "description": "<p>A good surf for good waves</p>",
+          "fileReference": "/content/dam/wknd-shared/en/magazine/san-diego-surf-spots/adobestock-164735399.jpeg",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Tue Mar 11 2025 10:50:20 GMT+0100",
+          "alt": "Surf",
+          "name": "Surf",
+          "category": "Fashion",
+          "brand": "huawei",
+          "price": "1500",
+          "discount": "true",
+          "discountPercentage": "20",
+          "hashtag": [
+            "surf",
+            "waves",
+            "sport"
+          ],
+          "jcr:lastModified": "Tue Mar 11 2025 11:57:18 GMT+0100",
+          "sling:resourceType": "wknd/components/product",
+          "textIsRich": "true"
+        }
+      }
+    }
+  },
+  "fr": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "product": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "description": "<p>A good surf for good waves</p>",
+          "fileReference": "/content/dam/wknd-shared/en/magazine/san-diego-surf-spots/adobestock-164735399.jpeg",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Tue Mar 11 2025 10:50:20 GMT+0100",
+          "alt": "Surf",
+          "name": "Surf",
+          "category": "Fashion",
+          "brand": "huawei",
+          "price": "1500",
+          "discount": "true",
+          "discountPercentage": "10",
+          "hashtag": [
+            "surf",
+            "waves",
+            "sport"
+          ],
+          "jcr:lastModified": "Tue Mar 11 2025 11:57:18 GMT+0100",
+          "sling:resourceType": "wknd/components/product",
+          "textIsRich": "true"
+        }
+      }
+    }
+  }
+}

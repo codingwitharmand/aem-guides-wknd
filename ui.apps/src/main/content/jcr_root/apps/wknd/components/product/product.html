@@ -5,7 +5,7 @@
     <h2 class="product__tile">${properties.name}</h2>
     <div class="product__description">${properties.description @ context='html'}</div>
     <span class="product__category">${properties.category}</span>
-    <div class="product__price">${properties.price}</div>
+    <div class="product__price">${model.computedPrice}</div>
     <div class="product__brand">${properties.brand}</div>
     <sly data-sly-test.separator="${model.separator}">
         <sly data-sly-test="${separator == 'pipe'}">
