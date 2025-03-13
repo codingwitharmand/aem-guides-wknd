@@ -1,0 +1,16 @@
+<sly data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.model="com.adobe.aem.guides.wknd.core.models.ProductCatalogModel"
+     data-sly-set.products="${model.products}"
+     data-sly-test.hasContent="${products.size > 0}">
+    <div data-sly-repeat.product="${products}" class="product">
+        <img src="${product.images[0]}" alt="${product.title}" class="product__image" />
+        <h2 class="product__tile">${product.title}</h2>
+        <div class="product__description">${product.description}</div>
+        <span class="product__category">${product.category}</span>
+        <div class="product__price">${product.price}</div>
+        <div class="product__brand">${product.brand}</div>
+        <div class="product__tags">${product.tags @ join=' - ' }</div>
+        <div class="product__rating">Rating: ${product.rating}</div>
+    </div>
+</sly>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>

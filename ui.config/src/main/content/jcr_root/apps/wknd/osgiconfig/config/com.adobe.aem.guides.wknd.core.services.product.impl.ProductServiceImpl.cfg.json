@@ -1,0 +1,5 @@
+{
+  "display.rating": true,
+  "description.max.length": 100,
+  "api.product.endpoint": "https://dummyjson.com/products"
+}
